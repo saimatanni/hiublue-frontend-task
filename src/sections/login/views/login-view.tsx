@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -59,6 +59,7 @@ export default function SignIn() {
         try {
             await login(data.email, data.password);
             router.push('/'); // Redirect after successful login
+            // redirect(`/`)
         } catch (err) {
             setError('Login failed. Please check your credentials.');
         } finally {

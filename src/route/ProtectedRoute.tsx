@@ -8,14 +8,18 @@ import Box from '@mui/material/Box';
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
     const { user } = useAuth();
-    // const storedUser = localStorage.getItem('user');
     const router = useRouter();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log('🔍 Checking user:', user); // Debugging user state
+        console.log('🔍 Checking user:', user);
 
-        if (!user ) {
+        if (user === undefined || user === null) {
+            console.log('⏳ Waiting for authentication state...');
+            return; // ✅ Don't do anything while authentication is loading
+        }
+
+        if (!user) {
             console.log('🚨 No user found, redirecting to login');
             router.push('/login');
         } else {
@@ -24,7 +28,7 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
         }
     }, [user, router]);
 
-    if (loading) {
+    if (loading || user === undefined) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
                 <CircularProgress />
