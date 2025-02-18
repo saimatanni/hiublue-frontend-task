@@ -1,10 +1,18 @@
-import DashboardView from "@/sections/dashboard/views/dashboard-view";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import ProtectedRoute from "@/route/ProtectedRoute";
+
+import DashboardView from "@/sections/dashboard/dashboard-view";
 
 export const metadata = {
-    title: 'Dashbord',
+  title: "Dashboard",
 };
 
-
 export default function Page() {
-    return <DashboardView/>;
+  return (
+    <ProtectedRoute>
+      <DashboardLayout>
+        <DashboardView />
+      </DashboardLayout>
+    </ProtectedRoute>
+  );
 }
