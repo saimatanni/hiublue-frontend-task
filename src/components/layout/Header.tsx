@@ -7,12 +7,12 @@ import Image from 'next/image';
 export default function Header() {
     return (
         <AppBar position="fixed" elevation={0} sx={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #E2E8F0' }}>
-            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', paddingX: 3 }}>
+            <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end', paddingX: 3 }}>
                 
                 {/* ✅ Dashboard Title */}
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#1E293B' }}>
+                {/* <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#1E293B' }}>
                     Dashboard
-                </Typography>
+                </Typography> */}
 
                 {/* ✅ Right Section (Month Dropdown & Profile) */}
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>

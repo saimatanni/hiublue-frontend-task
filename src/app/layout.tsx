@@ -5,7 +5,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import ThemeProvider from "@/theme/index";
 import { AuthProvider } from '@/context/AuthContext';
 import { Public_Sans } from 'next/font/google';
-
+import './global.css'
 const publicSans = Public_Sans({ subsets: ['latin'], weight: ['300', '400', '500', '700'] });
 
 export default function RootLayout(props: { children: React.ReactNode }) {

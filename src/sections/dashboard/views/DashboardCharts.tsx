@@ -1,6 +1,6 @@
 "use client";
 
-import { Stack, Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import WebsiteVisitsChart from "./chart/WebsiteVisitsChart";
 import OffersSentChart from "./chart/OffersSentChart";
 
@@ -14,15 +14,16 @@ export default function DashboardCharts({
       direction={{ xs: "column", md: "row" }}
       spacing={2}
       mt={{ xs: 2, md: 3 }}
-      width="100%"
-      flexWrap="wrap"
-      useFlexGap
       justifyContent="space-between"
+      alignItems="stretch"
     >
-      <Box sx={{ flex: 1, md: "50%" }}>
+      {/* ✅ Website Visits Chart */}
+      <Box sx={{ flex: 1, minWidth: { xs: "100%", md: "48%",height: "100%" } }}>
         <WebsiteVisitsChart filter={filter} />
       </Box>
-      <Box sx={{ flex: 1, md: "50%" }}>
+
+      {/* ✅ Offers Sent Chart */}
+      <Box sx={{ flex: 1, minWidth: { xs: "100%", md: "48%" ,height: "100%"} }}>
         <OffersSentChart filter={filter} />
       </Box>
     </Stack>

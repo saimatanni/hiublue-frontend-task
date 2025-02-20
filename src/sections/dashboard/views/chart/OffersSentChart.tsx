@@ -34,7 +34,7 @@ export default function OffersSentChart({
   const offerData = Object.keys(dayMap).map(day => data.offers_sent[day] || 0); // ✅ Match API response
 
   return (
-    <Card sx={{ padding: "20px", borderRadius: "12px", boxShadow: "0px 12px 24px -4px rgba(145, 158, 171, 0.12)" }}>
+    <Card sx={{ padding: "24px", borderRadius: "12px", boxShadow: "0px 12px 24px -4px rgba(145, 158, 171, 0.12)",height: "100%" }}>
       <Typography variant="h6" fontWeight={600} color="#1C252E" mb={2}>
         Offers sent
       </Typography>
