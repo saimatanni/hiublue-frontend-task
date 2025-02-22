@@ -60,7 +60,7 @@ export default function OfferTable() {
   const fetchOffers = async () => {
     setLoading(true);
     try {
-      const response = await api.get(`/offers`, {
+      const response = await api.get(`api/offers`, {
         
         params: {
           page,

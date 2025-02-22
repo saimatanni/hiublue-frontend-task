@@ -81,7 +81,7 @@ export default function OnboardingView() {
   const fetchUsers = async (searchQuery = "") => {
     setLoadingUsers(true);
     try {
-      const response = await api.get("/users", {
+      const response = await api.get("api/users", {
         params: { search: searchQuery, page: 1, per_page: 5 },
       });
       setUsers(response.data.data);
@@ -96,7 +96,7 @@ export default function OnboardingView() {
   const onSubmit = async (data: OfferFormValues) => {
     try {
       setResponseMessage(null);
-      await api.post("/offers", data);
+      await api.post("api/offers", data);
       setResponseMessage({ type: "success", text: "Offer Sent Successfully!" });
       // Clear the form fields after successful submission
       reset({

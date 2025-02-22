@@ -30,7 +30,7 @@ export default function useDashboardCharts(filter: 'this-week' | 'prev-week') {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await api.get(`/dashboard/summary?filter=${filter}`);
+                const response = await api.get(`api/dashboard/summary?filter=${filter}`);
                 setStates(response.data);
             } catch (err) {
                 setError((err as Error).message);
