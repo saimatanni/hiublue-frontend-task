@@ -22,6 +22,7 @@ import { Icon } from "@iconify/react";
 import useDebounce from "@/hooks/useDebounce";
 import SearchFilterFields from "@/utils/SearchFilterFields";
 import Loader from "@/utils/Loader";
+import api from "@/utils/apiInterceptor";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -59,8 +60,8 @@ export default function OfferTable() {
   const fetchOffers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE_URL}/offers`, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await api.get(`/offers`, {
+        
         params: {
           page,
           per_page: rowsPerPage,

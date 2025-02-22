@@ -29,6 +29,14 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     // }, [user, router]);
     useEffect(() => {
         console.log('🔍 Checking user:', user);
+        // Immediately check for a token in localStorage
+    if (typeof window !== 'undefined') {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          router.replace('/login');
+          return;
+        }
+      }
       
         // If still loading (user is undefined), do nothing
         if (user === undefined) {
